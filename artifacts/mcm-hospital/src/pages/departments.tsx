@@ -7,6 +7,8 @@ import { ArrowRight, Stethoscope } from "lucide-react";
 import { Link } from "wouter";
 import { SectionReveal, Stagger, StaggerItem } from "@/components/animations/SectionReveal";
 
+const FALLBACK = "https://www.mcmkoreanhospital.org/storage/about_us/27112024/About_3216.jpg";
+
 export default function Departments() {
   return (
     <PageTransition>
@@ -33,36 +35,59 @@ export default function Departments() {
       </div>
 
       <section className="py-20 container mx-auto px-4">
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {DEPARTMENTS.map((dept) => {
             const Icon = iconFor(dept.id);
             return (
               <StaggerItem key={dept.id}>
-                <div className="relative bg-white rounded-2xl border border-border/60 p-7 h-full flex flex-col group hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                  <div className="absolute inset-y-0 left-0 w-1 bg-secondary group-hover:bg-primary transition-colors" />
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/50 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+                <div className="group relative bg-white rounded-2xl border border-border/60 overflow-hidden h-full flex flex-col hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                    <img
+                      src={dept.imageUrl}
+                      alt={dept.name}
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = FALLBACK;
+                      }}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent" />
+
+                    {/* Floating icon badge */}
+                    <div className="absolute top-4 left-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/95 backdrop-blur text-primary shadow-lg ring-1 ring-primary/10 group-hover:bg-secondary group-hover:text-primary transition-all duration-300">
                       <Icon size={22} />
                     </div>
-                    <h3 className="text-xl font-bold text-primary leading-tight pt-1.5">
-                      {dept.name}
-                    </h3>
+
+                    {/* Title overlay on image */}
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <h3 className="text-xl md:text-2xl font-serif font-bold text-white leading-tight drop-shadow">
+                        {dept.name}
+                      </h3>
+                    </div>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                    {dept.description}
-                  </p>
-                  <Link href={`/doctors?department=${dept.id}`} className="mt-6">
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-between group-hover:bg-primary/5 group-hover:text-primary"
-                    >
-                      View Doctors
-                      <ArrowRight
-                        size={16}
-                        className="ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
-                      />
-                    </Button>
-                  </Link>
+
+                  {/* Body */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                      {dept.description}
+                    </p>
+                    <Link href={`/doctors?department=${dept.id}`} className="mt-6">
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-between text-primary hover:bg-primary/5 hover:text-primary"
+                      >
+                        View Doctors
+                        <ArrowRight
+                          size={16}
+                          className="ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                        />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  {/* Accent strip */}
+                  <div className="absolute inset-y-0 left-0 w-1 bg-secondary group-hover:bg-primary transition-colors" />
                 </div>
               </StaggerItem>
             );

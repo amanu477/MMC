@@ -439,27 +439,39 @@ export default function Home() {
               return (
                 <StaggerItem key={dept.id}>
                   <Link href="/departments" className="group block h-full">
-                    <div className="relative bg-white p-7 rounded-2xl border border-border/60 hover:border-primary/30 hover:shadow-xl transition-all h-full flex flex-col overflow-hidden">
-                      {/* tinted accent strip */}
-                      <div className="absolute inset-y-0 left-0 w-1 bg-secondary group-hover:bg-primary transition-colors" />
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/50 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                          <Icon size={22} />
+                    <div className="relative bg-white rounded-2xl border border-border/60 hover:border-primary/30 hover:shadow-xl transition-all h-full flex flex-col overflow-hidden">
+                      <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                        <img
+                          src={dept.imageUrl}
+                          alt={dept.name}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src =
+                              "https://www.mcmkoreanhospital.org/storage/about_us/27112024/About_3216.jpg";
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+                        <div className="absolute top-4 left-4 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-white/95 backdrop-blur text-primary shadow-md ring-1 ring-primary/10 group-hover:bg-secondary transition-all duration-300">
+                          <Icon size={20} />
                         </div>
-                        <h3 className="text-xl font-bold text-primary group-hover:text-primary transition-colors">
+                        <h3 className="absolute bottom-4 left-4 right-4 text-xl font-serif font-bold text-white drop-shadow leading-tight">
                           {dept.name}
                         </h3>
                       </div>
-                      <p className="text-muted-foreground flex-1 line-clamp-3 leading-relaxed">
-                        {dept.description}
-                      </p>
-                      <div className="mt-6 flex items-center text-sm font-medium text-primary">
-                        Learn more
-                        <ArrowRight
-                          size={14}
-                          className="ml-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"
-                        />
+                      <div className="p-6 flex flex-col flex-1">
+                        <p className="text-muted-foreground flex-1 line-clamp-3 leading-relaxed text-sm">
+                          {dept.description}
+                        </p>
+                        <div className="mt-5 flex items-center text-sm font-medium text-primary">
+                          Learn more
+                          <ArrowRight
+                            size={14}
+                            className="ml-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"
+                          />
+                        </div>
                       </div>
+                      <div className="absolute inset-y-0 left-0 w-1 bg-secondary group-hover:bg-primary transition-colors" />
                     </div>
                   </Link>
                 </StaggerItem>
