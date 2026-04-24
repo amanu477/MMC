@@ -1,0 +1,23 @@
+export const DEPARTMENTS = [
+  { id: "internal-medicine", name: "Internal Medicine", description: "Comprehensive care for adult conditions, managing complex illnesses and chronic diseases." },
+  { id: "surgery", name: "Surgery", description: "Advanced surgical interventions including laparoscopic and minimally invasive procedures." },
+  { id: "orthopedics", name: "Orthopedics", description: "Treatment of musculoskeletal system injuries and conditions, restoring mobility." },
+  { id: "neurosurgery", name: "Neurosurgery", description: "Specialized surgical care for disorders of the brain, spine, and nervous system." },
+  { id: "obstetrics-gynecology", name: "Obstetrics & Gynecology", description: "Complete women's healthcare, maternity services, and fetal-maternal medicine." },
+  { id: "pediatrics", name: "Pediatrics", description: "Compassionate, specialized care for infants, children, and adolescents." },
+  { id: "psychiatry", name: "Psychiatry", description: "Expert mental health support and treatment for a variety of psychiatric conditions." },
+  { id: "international-health", name: "International Health Care Unit", description: "Dedicated healthcare services and support for our international patients." },
+  { id: "dentistry", name: "Dentistry", description: "Comprehensive dental care, from routine checkups to specialized oral procedures." },
+  { id: "ophthalmology", name: "Ophthalmology (DEC)", description: "Advanced eye care, vitreology, and vision-preserving surgical treatments." },
+  { id: "dermatology", name: "Dermatology", description: "Expert diagnosis and treatment of skin, hair, and nail conditions." },
+  { id: "icu", name: "ICU", description: "24/7 critical and intensive care for life-threatening conditions." },
+  { id: "radiology", name: "Radiology", description: "State-of-the-art imaging including Ethiopia's first 1.5 Tesla MRI." },
+  { id: "anesthesiology", name: "Anesthesiology", description: "Ensuring patient safety and comfort before, during, and after surgical procedures." },
+  { id: "cath-lab", name: "Catheterization Laboratory", description: "Advanced interventional cardiology and specialized cardiovascular procedures." },
+  { id: "aku", name: "AKU (Artificial Kidney Unit)", description: "Specialized hemodialysis and comprehensive care for patients with kidney failure." },
+  { id: "nicu", name: "NICU", description: "Intensive care specialized for premature and critically ill newborns." },
+  { id: "neurology", name: "Neurology", description: "Diagnosis and management of disorders affecting the nervous system." },
+  { id: "physiotherapy", name: "Physiotherapy", description: "Rehabilitation services to restore function, alleviate pain, and improve mobility." },
+  { id: "pharmacy", name: "Pharmacy", description: "24/7 access to authentic, high-quality medications and pharmaceutical counseling." },
+  { id: "laboratory", name: "Laboratory", description: "Advanced diagnostic testing with high precision and rapid turnaround times." }
+];
