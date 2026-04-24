@@ -1,0 +1,51 @@
+import {
+  Stethoscope,
+  Scissors,
+  Bone,
+  Brain,
+  Baby,
+  HeartPulse,
+  Smile,
+  Eye,
+  Sparkles,
+  Activity,
+  Scan,
+  Syringe,
+  Heart,
+  Droplets,
+  Pill,
+  TestTube2,
+  Globe2,
+  Zap,
+  PersonStanding,
+  CircleDashed,
+  type LucideIcon,
+} from "lucide-react";
+
+export const DEPARTMENT_ICONS: Record<string, LucideIcon> = {
+  "internal-medicine": Stethoscope,
+  surgery: Scissors,
+  orthopedics: Bone,
+  neurosurgery: Brain,
+  "obstetrics-gynecology": Baby,
+  pediatrics: Baby,
+  psychiatry: Brain,
+  "international-health": Globe2,
+  dentistry: Smile,
+  ophthalmology: Eye,
+  dermatology: Sparkles,
+  icu: Activity,
+  radiology: Scan,
+  anesthesiology: Syringe,
+  "cath-lab": Heart,
+  aku: Droplets,
+  nicu: HeartPulse,
+  neurology: Zap,
+  physiotherapy: PersonStanding,
+  pharmacy: Pill,
+  laboratory: TestTube2,
+};
+
+export function iconFor(id: string): LucideIcon {
+  return DEPARTMENT_ICONS[id] ?? CircleDashed;
+}
